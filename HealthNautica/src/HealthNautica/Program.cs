@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 
-namespace HealthNautica
+namespace HealthNautica.Physician
 {
     public class Program
     {
