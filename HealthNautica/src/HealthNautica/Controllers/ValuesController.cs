@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using HealthNautica.Physician.Services;
 
 namespace HealthNautica.Physician.Controllers
 {
@@ -8,9 +9,10 @@ namespace HealthNautica.Physician.Controllers
     public class ValuesController : Controller
     {
         [HttpGet]
-        [Authorize(Policy = "appUser")]
+       
         public IEnumerable<string> Get()
         {
+            var load = HttpContext.Items["payload"] as AuthOptions;
             return new string[] { "value1", "value2" };
         }
     }

@@ -1,10 +1,3 @@
-using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Options;
-using System.Security.Claims;
-using System.Security.Principal;
-using System.Threading.Tasks;
-
 namespace HealthNautica.Physician.Services
 
 {
@@ -13,6 +6,8 @@ namespace HealthNautica.Physician.Services
     /// </summary>
     public class AuthOptions       
     {
-        public string Name {get; set;} = "test";
+        public string Name {get; set;}
+        public string Role { get; set; }
+        public string UserName { get; set; }
     }
 }

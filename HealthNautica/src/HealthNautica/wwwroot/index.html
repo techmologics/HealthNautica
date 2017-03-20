@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <title></title>
 </head>
-<body>
-    Test
+<body ng-app="hn.physicianApp">
+    <div ng-cloak ng-controller="homeController">
+        <div ui-view="mainContainerView" class="col-md-12"></div>
+    </div>
 </body>
 </html>

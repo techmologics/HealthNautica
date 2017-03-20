@@ -1,9 +1,5 @@
 using System;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Options;
-using System.Security.Claims;
-using System.Security.Principal;
-using System.Threading.Tasks;
 
 namespace HealthNautica.Physician.Services
 {
@@ -17,19 +13,20 @@ namespace HealthNautica.Physician.Services
         /// <param name="app">The <see cref="IApplicationBuilder"/> to add the middleware to.</param>
         /// <param name="options">A  <see cref="AuthOptions"/> that specifies options for the middleware.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
-        public static IApplicationBuilder UseTokenAuthentication(this IApplicationBuilder app, AuthOptions options)
+        public static IApplicationBuilder UseJwtTokenAuthentication(this IApplicationBuilder app)
         {
             if (app == null)
             {
                 throw new ArgumentNullException(nameof(app));
             }
 
-            if (options == null)
-            {
-                throw new ArgumentNullException(nameof(options));
-            }
+            //if (options == null)
+            //{
+            //    throw new ArgumentNullException(nameof(options));
+            //}
 
-            return app.UseMiddleware<AuthMiddleware>(Options.Create(options));
+            //  return app.UseMiddleware<JwtAuthMiddleware>(Options.Create(options));
+            return app.UseMiddleware<JwtAuthMiddleware>();
         }
     }
 }
