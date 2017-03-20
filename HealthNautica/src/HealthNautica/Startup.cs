@@ -74,8 +74,9 @@ namespace HealthNautica.Physician
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             // Shows UseCors with CorsPolicyBuilder.
-            app.UseCors("AllowAnyOrigin");
             app.UseStaticFiles();
+            app.UseCors("AllowAnyOrigin");
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

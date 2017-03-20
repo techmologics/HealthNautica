@@ -6,20 +6,21 @@
  security.testcontroller  js file
  </summary>
  --------------------------------------------------------------------------------------------------------------------*/
-(function (module) {
-    "use strict";
-    function testController($scope) {
-    };
-    module.controller("security.testController", testController);
-    testController.$inject = ["$scope"];
+//(function (module) {
+//    "use strict";
+//    function testController($scope) {
+//    };
+//    module.controller("security.testController", testController);
+//    testController.$inject = ["$scope"];
 
-})(angular.module("hn.physicianApp.security"));
+//})(angular.module("hn.physicianApp.security"));
 
 
 (function (module) {
     "use strict";
     module.controller("loginCtrl", Controller);
     function Controller($location, AuthenticationService) {
+        // function Controller($location) {
         var vm = this;
         vm.login = login;
 
@@ -27,12 +28,14 @@
 
         function initController() {
             // reset login status
-            AuthenticationService.Logout();
+            //AuthenticationService.Logout();
         };
 
         function login() {
-            vm.loading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (result) {
+            debugger;
+            // vm.loading = true;
+            AuthenticationService.login(vm.username, vm.password, function (result) {
+                debugger;
                 if (result === true) {
                     $location.path("/");
                 } else {
@@ -42,6 +45,7 @@
             });
         };
 
-        Controller.$inject = ["$location", AuthenticationService];
+        //Controller.$inject = ["$location", AuthenticationService];
+        Controller.$inject = ["$location"];
     }
 })(angular.module("hn.physicianApp.security"));

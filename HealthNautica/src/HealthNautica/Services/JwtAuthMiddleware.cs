@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using HealthNautica.Services;
 using System.Security.Cryptography;
+using HealthNautica.Extensions;
 
 namespace HealthNautica.Physician.Services
 {
@@ -31,6 +32,8 @@ namespace HealthNautica.Physician.Services
         public Task Invoke(HttpContext context)
         {
             _logger.LogInformation("Pre Handling request: " + context.Request.Path);
+            //if (!context.Request.Path.StartsWithSegments("/api"))
+            //    return _next(context);
             if (!context.Request.Path.Equals("/api/login", StringComparison.Ordinal))
             {
                 if (IsValidToken(context))
@@ -75,16 +78,28 @@ namespace HealthNautica.Physician.Services
 
         private string CreateToken(HttpContext context)
         {
-            string userName = context.Request.Form["username"];
-            string password = context.Request.Form["password"];
-            var isValid = new SignInManager(userName, password).ValidateUser();
+
+            var user = context.Request.ReadAsAsync<AppUser>().Result;
+            //context.Request.Body.
+            ///   string userName = //"test";
+            //  context.Request.Form["username"];
+            //context.Request.Content
+            // string password = //"test";
+
+            //  context.Request.Rea
+
+            //  context.Request.Form["password"];
+
+            // string password1 = context.Request.Body.ToString();
+            //Form["password"];
+            var isValid = new SignInManager(user.Username, user.Password).ValidateUser();
             string token = null;
             if (isValid)
             {
                 token = new JWTTokenGenerator(context).CreateToken(new AuthOptions
                 {
                     Name = "Abc",
-                    UserName = userName,
+                    UserName = user.Username,
                     Role = "Admin"
                 });
             }
@@ -98,5 +113,12 @@ namespace HealthNautica.Physician.Services
             var token = authHeader.Substring(authHeader.IndexOf(' ') + 1);
             return new JWTTokenGenerator(context).IsValidToken(token);
         }
+    }
+
+
+    public class AppUser
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

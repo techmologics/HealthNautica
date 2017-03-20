@@ -1,8 +1,10 @@
 ﻿(function (module) {
     // Move this response Handling to Respective Service
-    module.factory('HttpInterceptor', ['$q', '$localStorage', '$sessionStorage', function ($q, $localStorage, $sessionStorage) {
+   // module.factory('HttpInterceptor', ['$q', '$localStorage', '$sessionStorage', function ($q, $localStorage, $sessionStorage) {
+        module.factory('HttpInterceptor', ['$q',   function ($q) {
         return {
             request: function (config) {
+                debugger;
                 //Token Check and add
                 return config;
             },
@@ -10,9 +12,11 @@
                 return $q.reject(rejection);
             },
             response: function (response) {
+                debugger;
                 return response;
             },
             responseError: function (response) {
+                debugger;
                 var httpStatusCode = '';
                 if (response.status !== undefined) {
                     httpStatusCode = response.status;
@@ -37,7 +41,7 @@
         };
     }]);
     // pushing interceptor to $httpProvider
-    app.config(['$httpProvider', function ($httpProvider) {
+    module.config(['$httpProvider', function ($httpProvider) {
         $httpProvider.interceptors.push('HttpInterceptor');
     }]);
 
