@@ -79,7 +79,7 @@ namespace HealthNautica.Physician.Services
 
         private string CreateToken(HttpContext context)
         {
-            var user = context.Request.ReadAsAsync<User>().Result;
+            var user = context.Request.ReadAsAsync<AppUser>().Result;
             var isValid = new SignInManager(user.Username, user.Password).ValidateUser();
             string token = null;
             if (isValid)
