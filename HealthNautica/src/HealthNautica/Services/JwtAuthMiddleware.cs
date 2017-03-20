@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using HealthNautica.Services;
 using System.Security.Cryptography;
 using HealthNautica.Extensions;
+using HealthNautica.Models;
 
 namespace HealthNautica.Physician.Services
 {
@@ -78,20 +79,7 @@ namespace HealthNautica.Physician.Services
 
         private string CreateToken(HttpContext context)
         {
-
-            var user = context.Request.ReadAsAsync<AppUser>().Result;
-            //context.Request.Body.
-            ///   string userName = //"test";
-            //  context.Request.Form["username"];
-            //context.Request.Content
-            // string password = //"test";
-
-            //  context.Request.Rea
-
-            //  context.Request.Form["password"];
-
-            // string password1 = context.Request.Body.ToString();
-            //Form["password"];
+            var user = context.Request.ReadAsAsync<User>().Result;
             var isValid = new SignInManager(user.Username, user.Password).ValidateUser();
             string token = null;
             if (isValid)
@@ -115,10 +103,4 @@ namespace HealthNautica.Physician.Services
         }
     }
 
-
-    public class AppUser
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
-    }
 }
