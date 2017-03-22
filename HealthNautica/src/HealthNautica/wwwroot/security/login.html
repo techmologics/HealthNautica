@@ -16,10 +16,6 @@
 </head>
 <body ng-app="hn.physicianApp">
     <div class="col-md-6 col-md-offset-3" ng-controller="loginCtrl as vm">
-        <div class="alert alert-info">
-            Username: test<br />
-            Password: test
-        </div>
         <h2>Login</h2>
         <form name="form" ng-submit="form.$valid && vm.login()" novalidate>
             <div class="form-group" ng-class="{ 'has-error': form.$submitted && form.username.$invalid }">
