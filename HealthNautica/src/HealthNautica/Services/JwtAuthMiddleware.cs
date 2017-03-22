@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using HealthNautica.Services;
-using System.Security.Cryptography;
 using HealthNautica.Extensions;
 using HealthNautica.Models;
 
@@ -52,7 +51,7 @@ namespace HealthNautica.Physician.Services
                 {
                     var response = new
                     {
-                        access_token = token
+                        token = token
                     };
                     context.Response.ContentType = "application/json";
                     return context.Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings

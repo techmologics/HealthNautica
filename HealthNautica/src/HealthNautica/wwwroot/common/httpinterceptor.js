@@ -1,19 +1,26 @@
 ﻿(function (module) {
     // Move this response Handling to Respective Service
-   // module.factory('HttpInterceptor', ['$q', '$localStorage', '$sessionStorage', function ($q, $localStorage, $sessionStorage) {
-        module.factory('HttpInterceptor', ['$q',   function ($q) {
+    // module.factory('HttpInterceptor', ['$q', '$localStorage', '$sessionStorage', function ($q, $localStorage, $sessionStorage) {
+    module.factory('HttpInterceptor', ['$q', 'tokenService', function ($q, tokenService) {
         return {
             request: function (config) {
                 debugger;
                 //Token Check and add
+                var token = tokenService.getToken();
+                if (token) {
+                    config.headers.Authorization = 'Bearer ' + token;
+                }
                 return config;
+
             },
             requestError: function (rejection) {
                 return $q.reject(rejection);
             },
             response: function (response) {
                 debugger;
-                return response;
+                if (res.data.token) {
+                    tokenService.saveToken(res.data.token);
+                }
             },
             responseError: function (response) {
                 debugger;
