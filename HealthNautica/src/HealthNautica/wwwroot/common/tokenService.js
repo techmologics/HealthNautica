@@ -1,21 +1,20 @@
 ﻿(function (module) {
     'use strict';
     module
-    .factory('tokenService', tokenService);
+    .service('tokenService', tokenService);
 
     tokenService.$inject = ['$window'];
 
     function tokenService($window) {
-        var self = this;
-        self.logout = function () {
+        this.logout = function () {
             $window.localStorage.removeItem('jwtToken');
         };
 
-        self.saveToken = function (token) {
+        this.saveToken = function (token) {
             $window.localStorage['jwtToken'] = token;
         };
 
-        self.getToken = function () {
+        this.getToken = function () {
             return $window.localStorage['jwtToken'];
         };
     }

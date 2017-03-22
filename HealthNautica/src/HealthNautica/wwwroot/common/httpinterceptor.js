@@ -18,8 +18,8 @@
             },
             response: function (response) {
                 debugger;
-                if (res.data.token) {
-                    tokenService.saveToken(res.data.token);
+                if (response.data.token) {
+                    tokenService.saveToken(response.data.token);
                 }
             },
             responseError: function (response) {
