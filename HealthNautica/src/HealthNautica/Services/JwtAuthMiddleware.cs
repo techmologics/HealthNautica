@@ -63,17 +63,6 @@ namespace HealthNautica.Physician.Services
                 return context.Response.WriteAsync("UnAuthorized");
 
             }
-            // _logger.LogInformation("Post Handling request: " + context.Request.Path);
-            // Serialize and return the response
-            //var response = new
-            //{
-            //    access_token = "test token"
-            //};
-            //context.Response.ContentType = "application/json";
-            //return context.Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings
-            //{
-            //    Formatting = Formatting.Indented
-            //}));
         }
 
         private string CreateToken(HttpContext context)

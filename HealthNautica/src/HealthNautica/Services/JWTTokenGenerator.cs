@@ -11,7 +11,6 @@ namespace HealthNautica.Services
         private HttpContext _context;
 
         private string _secret = "HealthNautica";//Need to move this to config
-        //private byte[] SecretInByte => Encoding.UTF8.GetBytes(_secret);
 
         public JWTTokenGenerator(HttpContext context)
         {
@@ -31,9 +30,7 @@ namespace HealthNautica.Services
                 var payLoad = JsonWebToken.DecodeToObject<AuthOptions>(jwtToken, _secret);
                 if (payLoad != null)
                 {
-                    ThreadLocal<AuthOptions> th = new ThreadLocal<AuthOptions>();
-                    th.Value = payLoad;
-                    //_context.Items.Add("payload", payLoad);
+                    AddToThread(payLoad);
                     isValid = true;
                 }
 
@@ -49,7 +46,7 @@ namespace HealthNautica.Services
             //}
             catch (Exception ex)
             {
-
+                //Ignored
             }
 
             return isValid;
@@ -58,6 +55,12 @@ namespace HealthNautica.Services
 
         }
 
+        private void AddToThread(AuthOptions payLoad)
+        {
 
+            int threadId = Thread.CurrentThread.ManagedThreadId;
+            // Thread.SetData(Thread.GetNamedDataSlot(threadId.ToString()), payLoad);
+
+        }
     }
 }

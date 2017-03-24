@@ -1,22 +1,4 @@
-﻿/* --------------------------------------------------------------------------------------------------------------------
- <copyright file="security.testcontroller.js" company="Techmologics">
-   Copyright 2017
- </copyright>
- <summary>
- security.testcontroller  js file
- </summary>
- --------------------------------------------------------------------------------------------------------------------*/
-//(function (module) {
-//    "use strict";
-//    function testController($scope) {
-//    };
-//    module.controller("security.testController", testController);
-//    testController.$inject = ["$scope"];
-
-//})(angular.module("hn.physicianApp.security"));
-
-
-(function (module) {
+﻿(function (module) {
     "use strict";
     module.controller("loginCtrl", Controller);
     function Controller($location, AuthenticationService) {
@@ -30,7 +12,7 @@
             // reset login status
             //AuthenticationService.Logout();
         };
-
+         
         function login() {
             debugger;
             // vm.loading = true;
@@ -45,7 +27,7 @@
             });
         };
 
-        //Controller.$inject = ["$location", AuthenticationService];
-        Controller.$inject = ["$location"];
+        Controller.$inject = ["$location", AuthenticationService];
+      //  Controller.$inject = ["$location"];
     }
 })(angular.module("hn.physicianApp.security"));
