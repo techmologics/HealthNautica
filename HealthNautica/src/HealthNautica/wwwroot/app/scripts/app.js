@@ -30,7 +30,8 @@
         "hn.physicianApp.schedulers",
         "hn.physicianApp.software",
         "hn.physicianApp.alerts",
-        "hn.physicianApp.reports"
+        "hn.physicianApp.reports",
+        "ui.router"
        ]);
 
 })();
