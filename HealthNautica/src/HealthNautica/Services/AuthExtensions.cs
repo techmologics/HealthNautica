@@ -19,13 +19,6 @@ namespace HealthNautica.Physician.Services
             {
                 throw new ArgumentNullException(nameof(app));
             }
-
-            //if (options == null)
-            //{
-            //    throw new ArgumentNullException(nameof(options));
-            //}
-
-            //  return app.UseMiddleware<JwtAuthMiddleware>(Options.Create(options));
             return app.UseMiddleware<JwtAuthMiddleware>();
         }
     }

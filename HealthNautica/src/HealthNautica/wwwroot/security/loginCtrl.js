@@ -16,14 +16,21 @@
         function login() {
             debugger;
             // vm.loading = true;
-            AuthenticationService.login(vm.username, vm.password, function (result) {
+            AuthenticationService.login(vm.username, vm.password)
+            .then(function (result) {
                 debugger;
-                if (result === true) {
-                    $location.path("/");
-                } else {
-                    vm.error = "Username or password is incorrect";
-                    vm.loading = false;
-                }
+                //if (result === true) {
+                //$location.path("/Home.html");
+                console.log(window.location);
+                window.location.href = window.location.protocol + "//" + window.location.host+"/Home.html"
+                    'http://www.google.com';
+
+               // } else {
+                  //  vm.error = "Username or password is incorrect";
+                 //   vm.loading = false;
+              //  }
+            }, function (result) {
+                //Invalid User
             });
         };
 

@@ -48,5 +48,18 @@ var gulp = require('gulp');
 gulp.task("default", function () { });
 
 gulp.task("copyfiles", function () {
-    gulp.src("./node_modules/angular/angular.js").pipe(gulp.dest("./wwwwroot/libs"));
+    //js Files
+    gulp.src("./node_modules/angular/angular.js").pipe(gulp.dest("./wwwroot/libs/js"));
+    gulp.src("./node_modules/angular-ui-router/release/angular-ui-router.js").pipe(gulp.dest("./wwwroot/libs/js"));
+    gulp.src("./node_modules/angular/angular.js").pipe(gulp.dest("./wwwroot/libs/js"));
+    gulp.src("./node_modules/bootstrap/dist/js/bootstrap.js").pipe(gulp.dest("./wwwroot/libs/js"));
+
+    //CSS
+    gulp.src("./node_modules/bootstrap/dist/css/bootstrap.css").pipe(gulp.dest("./wwwroot/libs/css"));
+
+    //Fonts
+    gulp.src("./node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.eot").pipe(gulp.dest("./wwwroot/libs/fonts"));
+    gulp.src("./node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf").pipe(gulp.dest("./wwwroot/libs/fonts"));
+    gulp.src("./node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.woff").pipe(gulp.dest("./wwwroot/libs/fonts"));
+    gulp.src("./node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2").pipe(gulp.dest("./wwwroot/libs/fonts"));
 });

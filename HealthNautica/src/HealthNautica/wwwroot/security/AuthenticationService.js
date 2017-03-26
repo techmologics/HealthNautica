@@ -14,7 +14,7 @@
         return service;
 
         function login(username, password) {
-            $http({
+            return $http({
                 method: 'POST',
                 url: '/api/login',
                 data: {
@@ -23,12 +23,13 @@
 
                 },
                 headers: { 'Content-Type': 'application/json' }
-            }).then(function (response) {
-                debugger;
-
-            }, function (response) {
-
             });
+            //.then(function (response) {
+            //    debugger;
+
+            //}, function (response) {
+
+            //});
         }
     }
 })(angular.module("hn.physicianApp.security"));

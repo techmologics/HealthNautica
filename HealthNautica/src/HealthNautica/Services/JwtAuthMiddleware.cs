@@ -30,10 +30,12 @@ namespace HealthNautica.Physician.Services
         }
 
         public Task Invoke(HttpContext context)
+
+
         {
+            //Logging should be moved to Seperate Middleware
             _logger.LogInformation("Pre Handling request: " + context.Request.Path);
-            //if (!context.Request.Path.StartsWithSegments("/api"))
-            //    return _next(context);
+           
             if (!context.Request.Path.Equals("/api/login", StringComparison.Ordinal))
             {
                 if (IsValidToken(context))
@@ -63,7 +65,7 @@ namespace HealthNautica.Physician.Services
                 return context.Response.WriteAsync("UnAuthorized");
 
             }
-        }
+        } 
 
         private string CreateToken(HttpContext context)
         {
