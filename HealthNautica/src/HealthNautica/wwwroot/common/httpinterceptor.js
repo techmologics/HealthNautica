@@ -36,7 +36,7 @@
                     case 408:
                     case 401:
                         //Redirect to current which will eventually redirect to Identity Server.
-                        window.location.reload();
+                      //  window.location.reload();
                         break;
                     case 302:
                     case 404:

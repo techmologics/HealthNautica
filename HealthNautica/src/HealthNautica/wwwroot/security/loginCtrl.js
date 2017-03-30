@@ -22,8 +22,9 @@
                 //if (result === true) {
                 //$location.path("/Home.html");
                 console.log(window.location);
-                window.location.href = window.location.protocol + "//" + window.location.host+"/Home.html"
-                    'http://www.google.com';
+                window.location.href = window.location.protocol + "//" + window.location.host + "/Home.html"
+                
+                  //  'http://www.google.com';
 
                // } else {
                   //  vm.error = "Username or password is incorrect";

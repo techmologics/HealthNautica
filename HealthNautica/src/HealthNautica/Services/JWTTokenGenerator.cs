@@ -24,6 +24,8 @@ namespace HealthNautica.Services
 
         public bool IsValidToken(string jwtToken)
         {
+            if (!string.IsNullOrEmpty(jwtToken))
+                return false;
             bool isValid = false;
             try
             {

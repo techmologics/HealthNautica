@@ -35,7 +35,7 @@ namespace HealthNautica.Physician.Services
         {
             //Logging should be moved to Seperate Middleware
             _logger.LogInformation("Pre Handling request: " + context.Request.Path);
-           
+
             if (!context.Request.Path.Equals("/api/login", StringComparison.Ordinal))
             {
                 if (IsValidToken(context))
@@ -65,7 +65,7 @@ namespace HealthNautica.Physician.Services
                 return context.Response.WriteAsync("UnAuthorized");
 
             }
-        } 
+        }
 
         private string CreateToken(HttpContext context)
         {
@@ -88,8 +88,13 @@ namespace HealthNautica.Physician.Services
         private bool IsValidToken(HttpContext context)
         {
             string authHeader = context.Request.Headers["Authorization"];
-            var token = authHeader.Substring(authHeader.IndexOf(' ') + 1);
-            return new JWTTokenGenerator(context).IsValidToken(token);
+            if (authHeader != null)
+            {
+                var token = authHeader?.Substring(authHeader.IndexOf(' ') + 1);
+                return new JWTTokenGenerator(context).IsValidToken(token);
+            }
+            else
+                return false;
         }
     }
 
