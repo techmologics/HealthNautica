@@ -1,0 +1,59 @@
+﻿Create database Common
+GO
+create database Practice1
+Go
+create database Practice2
+Go
+create database EOrder1
+Go
+create database EOrder2
+Go
+
+Use EOrder1
+Go
+Create Table EOrder
+(Id int primary key,
+[Name] varchar(50)
+)
+Go
+Use EOrder2
+Go
+Create Table EOrder
+(Id int primary key,
+[Name] varchar(50)
+)
+Go
+USE Practice1
+GO
+Create Table Practice
+(Id int primary key,
+[Name] varchar(50)
+)
+
+Go
+USE Practice2
+GO
+Create Table Practice
+(Id int primary key,
+[Name] varchar(50)
+)
+
+USe Common
+GO
+
+CREATE TABLE MasterData(
+	[Id] [int] NOT NULL,
+	[DbName] [varchar](50) NULL,
+	[Hospital] [varchar](50) NULL
+)
+
+GO
+
+insert into MasterData values(1,'Practice1','Hospital1')
+Go
+insert into MasterData values(2,'Practice2','Hospital2')
+GO
+insert into MasterData values(3,'Practice3','Hospital3')
+
+
+
