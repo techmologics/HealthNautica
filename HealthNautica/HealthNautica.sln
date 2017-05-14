@@ -14,6 +14,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "HealthNautica.Physician", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthNautica.DataAccess", "HealthNautica.DataAccess\HealthNautica.DataAccess.csproj", "{52324AB8-1F8B-41BE-B51A-1443FE0FC9A5}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "HealthNautica.Physician.DataAccess", "HealthNautica.Physician.DataAccess\HealthNautica.Physician.DataAccess.xproj", "{D5C094AB-DF6D-403E-BB03-C63293F14C09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{52324AB8-1F8B-41BE-B51A-1443FE0FC9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52324AB8-1F8B-41BE-B51A-1443FE0FC9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52324AB8-1F8B-41BE-B51A-1443FE0FC9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C094AB-DF6D-403E-BB03-C63293F14C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C094AB-DF6D-403E-BB03-C63293F14C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C094AB-DF6D-403E-BB03-C63293F14C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C094AB-DF6D-403E-BB03-C63293F14C09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +41,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8EBE0D81-3D1C-4D39-A5BF-25E2ADA8D98F} = {31E72817-F81C-490A-A225-157B818C7010}
 		{52324AB8-1F8B-41BE-B51A-1443FE0FC9A5} = {31E72817-F81C-490A-A225-157B818C7010}
+		{D5C094AB-DF6D-403E-BB03-C63293F14C09} = {31E72817-F81C-490A-A225-157B818C7010}
 	EndGlobalSection
 EndGlobal
