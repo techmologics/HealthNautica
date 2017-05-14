@@ -30,12 +30,11 @@ namespace HealthNautica.Physician.Services
         }
 
         public Task Invoke(HttpContext context)
-
-
         {
             //Logging should be moved to Seperate Middleware
             _logger.LogInformation("Pre Handling request: " + context.Request.Path);
 
+            return _next(context);
             if (!context.Request.Path.Equals("/api/login", StringComparison.Ordinal))
             {
                 if (IsValidToken(context))

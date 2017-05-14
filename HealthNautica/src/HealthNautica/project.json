@@ -33,8 +33,14 @@
       "imports": [
         "dotnet5.6",
         "portable-net45+win8"
-      ]
-    }
+      ],
+      "dependencies": {
+        "HealthNautica.Physician.DataAccess": {
+          "target": "project"
+        }
+      }
+    },
+    
   },
 
   "buildOptions": {
